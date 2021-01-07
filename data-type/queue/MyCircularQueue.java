@@ -10,14 +10,22 @@ class MyCircularQueue {
     public MyCircularQueue(int size) {
         this.size = size;
         this.data = new ArrayList<>(size);
-        this.head = 0;
-        this.tail = 0;
+        this.head = -1;
+        this.tail = -1;
     }
 
     public boolean enQueue(int e) {
         if (isFull()) {
             return false;
         }
+        if (this.head == -1) {
+            this.head = 0;
+        }
+        this.tail++;
+        if (this.tail >= this.size) {
+            this.tail = 0;
+        }
+        this.data.add(this.tail, e);
         return true;
 
     }
@@ -27,23 +35,40 @@ class MyCircularQueue {
     }
 
     public boolean isEmpty() {
-        return false;
+        return this.tail == -1 && this.head == -1;
     }
 
     public boolean deQueue() {
         if (isEmpty()) {
             return false;
         } else {
+            if (this.head == this.tail) {
+                this.head = -1;
+                this.tail = -1;
+            } else {
+                this.head++;
+                if (this.head >= this.size) {
+                    this.head = 0;
+                }
+            }
             return true;
         }
     }
 
     public int Front() {
-        return -1;
+        if (this.head >= 0) {
+            return this.data.get(this.head);
+        } else {
+            return -1;
+        }
     }
 
     public int Rear() {
-        return -1;
+        if (this.tail >= 0) {
+            return this.data.get(this.tail);
+        } else {
+            return -1;
+        }
     }
 
     public static void main(String[] args) {
