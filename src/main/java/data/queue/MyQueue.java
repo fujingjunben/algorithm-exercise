@@ -2,6 +2,7 @@ package data.queue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.System;
 
 class MyQueue {
     private List<String> data;
