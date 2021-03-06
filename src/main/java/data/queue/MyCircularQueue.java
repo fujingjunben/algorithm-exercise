@@ -35,11 +35,7 @@ class MyCircularQueue {
     public boolean isFull() {
         if ((this.head == 0) && (this.tail == this.size - 1)) {
             return true;
-        } else if ((this.head - this.tail) == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        } else return (this.head - this.tail) == 1;
     }
 
     public boolean isEmpty() {
@@ -81,36 +77,6 @@ class MyCircularQueue {
     }
 
     public static void main(String[] args) {
-<<<<<<< HEAD:data-type/queue/MyCircularQueue.java
-        MyCircularQueue circularQueue = new MyCircularQueue(3); // 设置长度为 3
-        boolean result = circularQueue.enQueue(1); // 返回 true
-        assert result;
-        result = circularQueue.enQueue(2); // 返回 true
-        assert result;
-        result = circularQueue.enQueue(3); // 返回 true
-        assert result;
-        result = !circularQueue.enQueue(4); // 返回 false，队列已满
-        assert result;
-        result = 3 == circularQueue.Rear(); // 返回 3
-        assert result;
-        assert(circularQueue.isFull()); // 返回 true
-        result = circularQueue.deQueue(); // 返回 true
-        assert result;
-        assert (2 == circularQueue.Front());
-        result = circularQueue.enQueue(4); // 返回 true
-        assert result;
-        assert(4 == circularQueue.Rear()); // 返回 4
-        result = circularQueue.deQueue(); // 返回 true
-        assert result;
-        assert (3 == circularQueue.Front());
-        result = circularQueue.deQueue(); // 返回 true
-        assert result;
-        assert (4 == circularQueue.Front());
-        result = circularQueue.deQueue(); // 返回 true
-        assert result;
-        assert (circularQueue.isEmpty());
-
-=======
         MyCircularQueue circularQueue = new MyCircularQueue(3);
         circularQueue.enQueue(1);
         circularQueue.enQueue(2); // 返回 true
@@ -121,7 +87,6 @@ class MyCircularQueue {
         circularQueue.deQueue(); // 返回 true
         circularQueue.enQueue(4); // 返回 true
         circularQueue.Rear(); // 返回 4
->>>>>>> 12e17cac64270ab7a9a4734996ed9908fe58d0d5:src/main/java/data/queue/MyCircularQueue.java
     }
 
 }
