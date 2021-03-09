@@ -1,6 +1,4 @@
-package leetcode.s2;
-
-import java.util.List;
+package com.bigdeal.leetcode.s2;
 
 /**
  * Definition for singly-linked lis */

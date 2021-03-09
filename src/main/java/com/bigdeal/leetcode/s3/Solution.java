@@ -1,4 +1,4 @@
-package leetcode.s3;
+package com.bigdeal.leetcode.s3;
 
 import java.util.HashMap;
 import java.util.Map;

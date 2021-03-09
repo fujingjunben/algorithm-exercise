@@ -1,9 +1,9 @@
-package leetcode.s1;
+package com.bigdeal.leetcode.s1;
 
 import java.util.Map;
 import java.util.HashMap;
 
-//leetcode submit region begin(Prohibit modification and deletion)
+//com.bigdeal.leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();

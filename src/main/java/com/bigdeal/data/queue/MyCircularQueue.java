@@ -1,7 +1,4 @@
-package data.queue;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.bigdeal.data.queue;
 
 class MyCircularQueue {
     private int[] data;

@@ -1,32 +1,53 @@
-package leetcode.s4;
+package com.bigdeal.leetcode.s4;
 
-public class Solution {
+public class SolutionV2 {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        double m1 = getMedian(nums1, 0, nums1.length - 1);
-        double m2 = getMedian(nums2, 0, nums2.length - 1);
-        double r1 = findMedian(nums1, 0, nums1.length - 1,
-                Math.min(m1, m2), Math.max(m1, m2));
-        double r2 = findMedian(nums1, 0, nums1.length - 1,
-                Math.min(m1, m2), Math.max(m1, m2));
-
-        return (r1 + r2) / 2;
+        Position p1 = shrink(nums1, 0, nums1.length - 1, 0, 0);
+        Position p2 = shrink(nums2, 0, nums1.length - 1, 0, 0);
+        int[] a = pickSmaller(nums1, nums2, p1.start, p1.end, p2.start, p2.end);
+        return getMedian(a, 0, a.length - 1);
     }
 
-    private double findMedian(int[] nums, int start, int end, double low, double high){
-        if (low == high) {
-            return low;
+    private int[] pickSmaller(int[] nums1, int[] nums2, int start1, int end1, int start2, int end2) {
+        int i = start1;
+        int j = start2;
+        int k = 0;
+        int[] nums3 = new int[end1 - start1 + end2 - start2 + 2];
+
+        while (i <= end1 && j <= end2 ) {
+            if (nums1[i] < nums2[j]) {
+                nums3[k++] = nums1[i++];
+            } else {
+                nums3[k++] = nums2[j++];
+            }
         }
-        if (start >= end) {
-            return nums[start];
-        }
-        if (nums[start] < low) {
-            start = (end + start) / 2 + 1;
-        }
-        if (nums[end] > high) {
-            end = (end - start) / 2;
+        while (i <= end1) {
+            nums3[k++] = nums1[i++];
         }
 
-        return findMedian(nums, start, end, low, high);
+        while (j <= end2) {
+            nums3[k++] = nums2[j++];
+        }
+        return nums3;
+    }
+
+    private Position shrink(int[] nums, int start, int end, double low, double high){
+        if ((end - start) <= 2){
+            return new Position(start, end);
+        }
+
+        int nextStart = start;
+        int nextEnd = end;
+        if (nums[start] < low) {
+            nextStart = (end + start) / 2 + 1;
+        }
+        if (nums[end] > high) {
+            nextEnd = (end - nextStart) / 2;
+        }
+
+        double median = getMedian(nums, nextStart, nextEnd);
+
+        return shrink(nums, nextStart, nextEnd, Math.max(low, median), Math.min(high, median));
     }
 
     private double getMedian(int[] nums, int start, int end){
@@ -43,8 +64,22 @@ public class Solution {
         return median;
     }
 
+    private static class Position {
+        public int start;
+        public int end;
+
+        public Position(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+
+        public int size(){
+            return this.end - this.start + 1;
+        }
+    }
+
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        SolutionV2 solution = new SolutionV2();
         int[] nums1 = new int[]{1, 3, 5, 6, 10};
         int[] nums2 = new int[]{7, 8, 9, 12, 20};
 
@@ -79,10 +114,10 @@ public class Solution {
         median = solution.getMedian(test, 0, test.length - 1);
         System.out.println("test median: " + median);
 
-        if (solution.findMedianSortedArrays(nums7, nums8) == 5.0){
-            System.out.println("3. correct");
+        if (solution.findMedianSortedArrays(nums7, nums8) == 31){
+            System.out.println("4. correct");
         } else {
-            System.out.println("3. false");
+            System.out.println("4. false");
         }
 
 

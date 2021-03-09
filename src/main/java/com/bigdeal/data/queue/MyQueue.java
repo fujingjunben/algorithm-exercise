@@ -1,4 +1,4 @@
-package data.queue;
+package com.bigdeal.data.queue;
 
 import java.util.ArrayList;
 import java.util.List;
