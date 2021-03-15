@@ -35,4 +35,46 @@ public class ArrayUtil {
         }
         return median;
     }
+    public static void printArray(int[] nums, boolean showHeader) {
+        int size = nums.length;
+        if (showHeader) {
+            System.out.printf("%5s", "");
+            for (int i = 0; i < size; i++) {
+                System.out.printf("%5d", i);
+            }
+
+            System.out.println();
+            System.out.printf("%5s", "");
+            for (int i = 0; i < size * 5; i++) {
+                System.out.printf("%s", "*");
+            }
+        }
+        System.out.println("");
+        System.out.printf("%5s", "");
+
+        for (int i = 0; i < size; i++) {
+            System.out.printf("%5d", nums[i]);
+        }
+        System.out.println();
+    }
+    public static void print2DArray(int[][] nums, boolean showHeader) {
+        int row = nums.length;
+        int col = nums[0].length;
+        if (showHeader) {
+            System.out.printf("%5s", "");
+            for (int i = 0; i < row; i++) {
+                System.out.printf("%5d", i);
+            }
+
+        }
+
+        System.out.println();
+        for (int i = 0; i < row; i++) {
+            System.out.printf("%5d", i);
+            for (int j = 0; j < col; j++) {
+                System.out.printf("%5d", nums[i][j]);
+            }
+            System.out.println();
+        }
+    }
 }
