@@ -5,27 +5,35 @@ import com.bigdeal.util.ArrayUtil;
 public class Solution {
     public int maxProfit(int[] prices) {
         int size = prices.length;
-        int[][] matrix = new int[size][size];
+        if (size == 2) {
+            return Math.max(0, prices[1] - prices[0]);
+        }
 
         for (int i = 0; i < size; i++) {
-            for (int j = i + 1; j < size; j++) {
-                matrix[i][j] = Math.max(0, prices[j] - prices[i]);
+            int q = 0;
+            for (int j = 1; j < i; j++) {
+                q = Math.max(q, )
             }
         }
 
-        ArrayUtil.printArray(prices, true);
-        ArrayUtil.print2DArray(matrix, false);
-
-        int maxSum = 0;
-        int sum = 0;
-        for (int i = 0; i < size; i++) {
-            for (int j = i + 3; j < size; j++) {
-                if (i + 2 < size) {
-                    sum = sum + matrix[i + 2][j];
-                }
-            }
-            maxSum = Math.max(maxSum, sum);
+        if (size == 3) {
+            return Math.max(0, Math.max(prices[end] - prices[end - 1], prices[start + 1] - prices[start]));
         }
-        return maxSum;
+
+        return 0;
+    }
+
+    private int computeProfit(int[] prices) {
+        int size = end - start + 1;
+
+        if (size < 2) {
+            return 0;
+        }
+
+        int q = 0;
+        for (int i = start; i < size; i++) {
+            q = Math.max(q, computeProfit(prices, 0, i) + computeProfit(prices, i + 1, size));
+        }
+        return q;
     }
 }
