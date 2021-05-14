@@ -3,7 +3,7 @@ package com.bigdeal.leetbook.simple.linklist.s3;
 import java.util.Stack;
 
 public class Solution {
-    public ListNode reverseList(ListNode head) {
+    public ListNode reverseListByStack(ListNode head) {
         if (head == null) {
             return null;
         }
@@ -28,6 +28,19 @@ public class Solution {
 
         return newHead;
     }
+
+    public ListNode reverseListByList(ListNode head) {
+        ListNode newHead = null;
+        ListNode node = head;
+        while (node != null) {
+            ListNode tmpNode = node.next;
+            node.next = newHead;
+            newHead = node;
+            node = tmpNode;
+        }
+        return newHead;
+    }
+
     public static class ListNode {
         int val;
         ListNode next;
@@ -51,13 +64,20 @@ public class Solution {
             nextNode.next = node;
             nextNode = node;
         }
-        
-        Solution solution = new Solution();
-        ListNode newHead = solution.reverseList(head);
 
-        while (newHead != null) {
-            System.out.println(newHead.val);
-            newHead = newHead.next;
+        Solution solution = new Solution();
+        ListNode newHead = solution.reverseListByStack(head);
+        printListNode(newHead);
+
+        newHead = solution.reverseListByList(head);
+        printListNode(newHead);
+
+    }
+
+    private static void printListNode(ListNode head) {
+        while (head != null) {
+            System.out.println(head.val);
+            head = head.next;
         }
     }
 }
