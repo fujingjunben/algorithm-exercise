@@ -66,10 +66,10 @@ public class Solution {
         }
 
         Solution solution = new Solution();
-        ListNode newHead = solution.reverseListByStack(head);
-        printListNode(newHead);
+//        ListNode newHead = solution.reverseListByStack(head);
+//        printListNode(newHead);
 
-        newHead = solution.reverseListByList(head);
+        ListNode newHead = solution.reverseListByList(head);
         printListNode(newHead);
 
     }
