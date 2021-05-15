@@ -76,7 +76,7 @@ public class Solution {
 
         Solution solution = new Solution();
         ListNode newHead = solution.reverseListByStack(head);
-        
+
         ListNodeUtil.printListNode(newHead);
     }
 }
