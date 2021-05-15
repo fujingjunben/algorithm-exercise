@@ -1,7 +1,4 @@
-package com.bigdeal.leetbook.simple.s1;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.bigdeal.leetbook.simple.array.s1;
 
 public class Solution {
     public int removeDuplicates(int[] nums) {

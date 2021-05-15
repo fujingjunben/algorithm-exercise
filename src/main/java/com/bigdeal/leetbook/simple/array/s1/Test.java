@@ -1,4 +1,4 @@
-package com.bigdeal.leetbook.simple.s1;
+package com.bigdeal.leetbook.simple.array.s1;
 
 public class Test {
     public static void main(String[] args) {

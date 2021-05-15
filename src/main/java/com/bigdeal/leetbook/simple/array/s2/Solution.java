@@ -1,4 +1,4 @@
-package com.bigdeal.leetbook.simple.s2;
+package com.bigdeal.leetbook.simple.array.s2;
 
 public class Solution {
     public int maxProfit(int[] prices) {

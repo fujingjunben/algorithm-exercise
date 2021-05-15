@@ -1,5 +1,8 @@
 package com.bigdeal.leetbook.simple.linklist.s3;
 
+import com.bigdeal.leetbook.simple.linklist.ListNode;
+import com.bigdeal.util.ListNodeUtil;
+
 import java.util.Stack;
 
 public class Solution {
@@ -68,44 +71,12 @@ public class Solution {
         return reverseListByTailRecursionHelper(node, head);
     }
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(){}
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public static void main(String[] args) {
-        ListNode head = new ListNode(0);
-
-        ListNode nextNode = head;
-        for (int i = 1; i < 5; i++) {
-            ListNode node = new ListNode(i);
-            nextNode.next = node;
-            nextNode = node;
-        }
+        ListNode head = ListNodeUtil.generate(5);
 
         Solution solution = new Solution();
-//        ListNode newHead = solution.reverseListByStack(head);
-//        printListNode(newHead);
-
         ListNode newHead = solution.reverseListByStack(head);
-        printListNode(head);
-//        printListNode(newHead);
-
-    }
-
-    private static void printListNode(ListNode head) {
-        while (head != null) {
-            System.out.println(head.val);
-            head = head.next;
-        }
+        
+        ListNodeUtil.printListNode(newHead);
     }
 }
