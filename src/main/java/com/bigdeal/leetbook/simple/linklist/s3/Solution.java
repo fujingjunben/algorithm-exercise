@@ -31,14 +31,41 @@ public class Solution {
 
     public ListNode reverseListByList(ListNode head) {
         ListNode newHead = null;
-        ListNode node = head;
-        while (node != null) {
-            ListNode tmpNode = node.next;
-            node.next = newHead;
-            newHead = node;
-            node = tmpNode;
+        while (head != null) {
+            ListNode tmpNode = head.next;
+            head.next = newHead;
+            newHead = head;
+            head = tmpNode;
         }
         return newHead;
+    }
+
+    public ListNode reverseListByRecursion(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        ListNode node = head.next;
+        ListNode newHead = reverseListByRecursion(node);
+
+        node.next = head;
+        head.next = null;
+
+        return newHead;
+    }
+
+    public ListNode reverseListByTailRecursion(ListNode head) {
+        return reverseListByTailRecursionHelper(head, null);
+    }
+
+    private ListNode reverseListByTailRecursionHelper(ListNode head,
+                                                      ListNode newHead) {
+        if (head == null) {
+            return newHead;
+        }
+        ListNode node = head.next;
+        head.next = newHead;
+        return reverseListByTailRecursionHelper(node, head);
     }
 
     public static class ListNode {
@@ -69,8 +96,9 @@ public class Solution {
 //        ListNode newHead = solution.reverseListByStack(head);
 //        printListNode(newHead);
 
-        ListNode newHead = solution.reverseListByList(head);
-        printListNode(newHead);
+        ListNode newHead = solution.reverseListByStack(head);
+        printListNode(head);
+//        printListNode(newHead);
 
     }
 
