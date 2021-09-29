@@ -1,4 +1,4 @@
-package com.bigdeal;
+package com.bigdeal.thread;
 
 public class Scheduler<T> {
     private Producer<T> producer;
