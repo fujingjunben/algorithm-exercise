@@ -19,5 +19,10 @@ public class TestSort {
         int[] a1 = { 2, 10};
         Insertion.sort(a);
         assertArrayEquals(a1, a);
+
+        int[] b = { 8, 13, 2, 20, 9};
+        int[] b1 = { 20, 13, 9, 8, 2};
+        Insertion.sortByDesc(b);
+        assertArrayEquals(b1, b);
     }
 }
