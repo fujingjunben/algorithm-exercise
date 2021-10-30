@@ -1,19 +1,27 @@
 package com.bigdeal.thread;
 
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
+
 public class Scheduler<T> {
-    private Producer<T> producer;
     private Consumer<T> consumer;
-    private Thread thread = new Thread(new Runnable() {
+    private final Queue<T> queue = new ArrayBlockingQueue<>(1);
+    private final Thread thread = new Thread(new Runnable() {
         @Override
         public void run() {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            T data = producer.produce();
+            while (!Thread.currentThread().isInterrupted()) {
+                try{
+                    T data = queue.poll();
+                    if (data == null) {
+                        continue;
+                    }
                     consumer.consume(data);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
             }
+        }
     });
 
     public void startConsume(Consumer<T> consumer) {
@@ -22,11 +30,16 @@ public class Scheduler<T> {
     }
 
     public void produce(Producer<T> producer) {
-        this.producer = producer;
-        thread.notify();
+        T produce = producer.produce();
+        queue.add(produce);
     }
 
     public void shutdown() {
+        try{
+            Thread.sleep(1000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         thread.interrupt();
     }
 }
