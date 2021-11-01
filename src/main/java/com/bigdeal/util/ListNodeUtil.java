@@ -1,6 +1,6 @@
 package com.bigdeal.util;
 
-import com.bigdeal.leetbook.simple.linklist.ListNode;
+import com.bigdeal.model.ListNode;
 
 public class ListNodeUtil {
     public static void printListNode(ListNode head) {

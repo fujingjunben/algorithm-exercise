@@ -1,6 +1,5 @@
 package com.bigdeal.leetcode.s167;
 
-import com.bigdeal.util.ArrayUtil;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

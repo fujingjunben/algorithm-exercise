@@ -1,4 +1,4 @@
-package com.bigdeal.leetbook.simple.linklist;
+package com.bigdeal.model;
 
 public class ListNode {
     public int val;

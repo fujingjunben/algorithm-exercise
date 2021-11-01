@@ -1,6 +1,6 @@
 package com.bigdeal.leetbook.simple.linklist.s3;
 
-import com.bigdeal.leetbook.simple.linklist.ListNode;
+import com.bigdeal.model.ListNode;
 import com.bigdeal.util.ListNodeUtil;
 
 import java.util.Stack;

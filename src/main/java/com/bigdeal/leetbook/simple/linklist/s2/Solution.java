@@ -1,6 +1,6 @@
 package com.bigdeal.leetbook.simple.linklist.s2;
 
-import com.bigdeal.leetbook.simple.linklist.ListNode;
+import com.bigdeal.model.ListNode;
 
 public class Solution {
     public ListNode deleteNode(ListNode head, int n) {

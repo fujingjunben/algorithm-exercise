@@ -1,6 +1,6 @@
 package com.bigdeal.leetbook.simple.linklist.s1;
 
-import com.bigdeal.leetbook.simple.linklist.ListNode;
+import com.bigdeal.model.ListNode;
 
 /**
  * delete node by value in linked list
