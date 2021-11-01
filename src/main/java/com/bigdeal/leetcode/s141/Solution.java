@@ -7,13 +7,32 @@ import java.util.Map;
 
 public class Solution {
     public boolean hasCycle(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean hasCycle2(ListNode head) {
+        if (head == null) {
+            return false;
+        }
         Map<ListNode, Integer> data = new HashMap<>();
-        while (head.next != null){
-            ListNode next = head.next;
-            if (data.containsKey(next)) {
+
+        ListNode node = head.next;
+        while (node != null){
+            if (data.containsKey(node)) {
                 return true;
             } else{
-                data.put(next, 1);
+                data.put(node, 1);
+                node = node.next;
             }
         }
         return false;
