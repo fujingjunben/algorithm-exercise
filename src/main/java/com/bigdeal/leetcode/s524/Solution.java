@@ -7,11 +7,9 @@ public class Solution {
         String result = "";
         for (String item : dictionary) {
             if (isMatch(s, item)) {
-                if (result.length() < item.length()) {
-                    result = item;
-                }
-                if (result.length() == item.length()
-                        && (result.compareTo(item) > 0)) {
+                if (result.length() < item.length()
+                        || (result.length() == item.length()
+                        && result.compareTo(item) > 0)) {
                     result = item;
                 }
             }
