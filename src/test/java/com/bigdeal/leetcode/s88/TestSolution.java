@@ -16,7 +16,7 @@ public class TestSolution {
 
         Solution solution = new Solution();
         solution.merge(nums1, m, nums2, n);
-        ArrayUtil.printArray(nums1, true);
+        MyArrayUtil.printArray(nums1, true);
         Assertions.assertArrayEquals(expected, nums1);
     }
 

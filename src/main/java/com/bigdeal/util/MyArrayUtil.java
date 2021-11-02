@@ -1,6 +1,6 @@
 package com.bigdeal.util;
 
-public class ArrayUtil {
+public class MyArrayUtil {
     // merge sort two sorted int array
     public static int[] pickSmaller(int[] nums1, int[] nums2, int n1, int n2) {
         int i = 0;
