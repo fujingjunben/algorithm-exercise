@@ -6,13 +6,7 @@ public class Solution {
     public String findLongestWord(String s, List<String> dictionary) {
         String result = "";
         for (String item : dictionary) {
-            boolean match = true;
-            for (char c : item.toCharArray()) {
-                if (!s.contains(Character.toString(c))) {
-                    match = false;
-                }
-            }
-            if (match) {
+            if (isMatch(s, item)) {
                 if (result.length() < item.length()) {
                     result = item;
                 }
@@ -23,5 +17,21 @@ public class Solution {
             }
         }
         return result;
+    }
+
+    private boolean isMatch(String s1, String s2) {
+        int i = 0;
+        int j = 0;
+
+        while (i < s1.length() && j < s2.length()) {
+            if (s1.charAt(i) == s2.charAt(j)) {
+                i++;
+                j++;
+            } else {
+                i++;
+            }
+        }
+
+        return j == s2.length();
     }
 }
