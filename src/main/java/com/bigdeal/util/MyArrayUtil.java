@@ -35,6 +35,29 @@ public class MyArrayUtil {
         }
         return median;
     }
+
+    public static void printArray(Integer[] nums) {
+        int size = nums.length;
+        if (true) {
+            System.out.printf("%5s", "");
+            for (int i = 0; i < size; i++) {
+                System.out.printf("%5d", i);
+            }
+
+            System.out.println();
+            System.out.printf("%5s", "");
+            for (int i = 0; i < size * 5; i++) {
+                System.out.printf("%s", "*");
+            }
+        }
+        System.out.println("");
+        System.out.printf("%5s", "");
+
+        for (int i = 0; i < size; i++) {
+            System.out.printf("%5d", nums[i]);
+        }
+        System.out.println();
+    }
     public static void printArray(int[] nums, boolean showHeader) {
         int size = nums.length;
         if (showHeader) {

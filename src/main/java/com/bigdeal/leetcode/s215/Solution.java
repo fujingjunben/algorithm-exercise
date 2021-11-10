@@ -11,8 +11,6 @@ public class Solution {
         if (k >= nums.length) {
             return -1;
         }
-        Arrays.sort(nums, Comparator.reverseOrder());
-        MyArrayUtil.printArray(nums, false);
         return nums[k - 1];
     }
 }
