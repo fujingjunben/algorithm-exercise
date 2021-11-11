@@ -2,7 +2,13 @@ package com.bigdeal.sort;
 
 public class HeapSort<Key extends Comparable<Key>> {
     public void sort(Key[] a) {
-        buildMaxHeap(a);
+        int heapSize = a.length;
+        buildMaxHeap(a, heapSize);
+        for (int i = a.length - 1; i > 0 ; i--) {
+            exch(a, 0, i);
+            heapSize--;
+            maxHeapify(a, heapSize, 0);
+        }
     }
     public void sink(Key[] a, int k, int N) {
         while (2 * k + 2 < N) {
@@ -42,11 +48,11 @@ public class HeapSort<Key extends Comparable<Key>> {
 
         int largest = k;
 
-        if (l <= heapSize && !less(a, l, k)) {
+        if (l < heapSize && !less(a, l, k)) {
             largest = l;
         }
 
-        if (r <= heapSize && !less(a, r, largest)) {
+        if (r < heapSize && !less(a, r, largest)) {
             largest = r;
         }
 
@@ -56,8 +62,7 @@ public class HeapSort<Key extends Comparable<Key>> {
         }
     }
 
-    public void buildMaxHeap(Key[] a) {
-        int heapSize = a.length - 1;
+    public void buildMaxHeap(Key[] a, int heapSize) {
         for (int i = heapSize / 2; i >= 0; i--) {
             maxHeapify(a, heapSize, i);
         }
