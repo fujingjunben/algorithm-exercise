@@ -28,3 +28,7 @@ hs_err_pid*
 build
 *.iml
 out/
+.classpath
+.project
+.settings/org.eclipse.buildship.core.prefs
+bin
