@@ -1,6 +1,9 @@
 package com.bigdeal.thread;
 
 
+import com.bigdeal.thread.demo1.Consumer;
+import com.bigdeal.thread.demo1.Producer;
+import com.bigdeal.thread.demo1.Scheduler;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -43,7 +46,7 @@ class SchedulerTest {
 
         });
         // don't assume there are only 4 items in Scheduler implementation
-        for (int i = 1; i <= 4; i++) {
+        for (int i = 1; i <= 100; i++) {
             int data = i;
             scheduler.produce(new Producer<Integer>() {
                 protected Integer produce() {
@@ -65,7 +68,7 @@ class SchedulerTest {
 
         scheduler.shutdown();
 
-        assertEquals(4, results.size());
+        assertEquals(100, results.size());
         assertEquals(1, results.get(0).intValue());
         assertEquals(2, results.get(1).intValue());
         assertEquals(3, results.get(2).intValue());
