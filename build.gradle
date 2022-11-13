@@ -24,3 +24,7 @@ test {
 apply plugin: 'application'
 
 mainClassName = ''
+
+tasks.withType(JavaCompile){
+    options.encoding = "UTF-8"
+}

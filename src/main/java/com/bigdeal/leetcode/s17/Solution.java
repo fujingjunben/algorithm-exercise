@@ -7,7 +7,8 @@ import java.util.List;
 class Solution {
     public List<String> letterCombinations(String digits) {
         HashMap<String, List<String>> table = new HashMap<>();
-        table.put("2", new ArrayList<String>(){})
+        table.put("2", new ArrayList<String>(){});
+        return null;
     }
 
 }
