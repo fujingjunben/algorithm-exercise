@@ -16,7 +16,7 @@ public class TestSolution {
     @Test
     public void test2() {
         int a = 60;
-        String expected = "1m";
+        String expected = "1min";
         String result = Solution.convert(a);
         Assertions.assertEquals(expected, result);
     }
@@ -24,7 +24,7 @@ public class TestSolution {
     @Test
     public void test3() {
         int a = 62;
-        String expected = "1m2s";
+        String expected = "1min2s";
         String result = Solution.convert(a);
         Assertions.assertEquals(expected, result);
     }
@@ -49,7 +49,7 @@ public class TestSolution {
     @Test
     public void test6() {
         int a = 36662;
-        String expected = "10h11m2s";
+        String expected = "10h11min2s";
         String result = Solution.convert(a);
         Assertions.assertEquals(expected, result);
     }
